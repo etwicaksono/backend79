@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nasabah extends Model
 {
-    //
+    protected $fillable = ["name", "address"];
 }
