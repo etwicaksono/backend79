@@ -22,3 +22,5 @@ $router->post("nasabah", "NasabahController@insertNasabah");
 
 $router->get("transaksi", "TransaksiController@index");
 $router->post("transaksi", "TransaksiController@store");
+
+$router->get("cek-poin", "TransaksiController@show_point");

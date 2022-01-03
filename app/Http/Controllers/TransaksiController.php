@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TransaksiModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransaksiController extends Controller
 {
@@ -85,5 +86,23 @@ class TransaksiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function show_point()
+    {
+        $transaction = DB::table("transaksi AS t")
+            ->leftJoin("nasabah AS n", "t.user_id", "=", "n.account_id")
+            ->select("n.account_id", "n.name", "t.transaction_date", "t.description", "t.type", "t.amount")
+            ->where("t.type", "=", "D")
+            ->where("t.description", "=", "Beli Pulsa")
+            ->orWhere("t.type", "=", "D")
+            ->where("t.description", "=", "Bayar Listrik")
+            ->get();
+
+        foreach ($transaction as $tr) {
+            $tr->poin = get_point($tr->description, $tr->amount);
+        }
+
+        return \response()->json($transaction, 201);
     }
 }
