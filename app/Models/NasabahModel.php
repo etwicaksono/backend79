@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nasabah extends Model
+class NasabahModel extends Model
 {
+    protected $table = "nasabah";
     protected $fillable = ["name", "address"];
 }

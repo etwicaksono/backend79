@@ -16,3 +16,6 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get("nasabah", "NasabahController@showAllNasabah");
+$router->post("nasabah", "NasabahController@insertNasabah");
