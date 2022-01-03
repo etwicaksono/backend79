@@ -19,3 +19,6 @@ $router->get('/', function () use ($router) {
 
 $router->get("nasabah", "NasabahController@showAllNasabah");
 $router->post("nasabah", "NasabahController@insertNasabah");
+
+$router->get("transaksi", "TransaksiController@index");
+$router->post("transaksi", "TransaksiController@store");

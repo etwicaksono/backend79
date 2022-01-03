@@ -16,7 +16,7 @@ class NasabahController extends Controller
     {
         $nasabah = NasabahModel::create($request->all());
         return \response()->json([
-            "self" => $nasabah,
+            "recent" => $nasabah,
             "all" => NasabahModel::all()
         ], 201);
     }
