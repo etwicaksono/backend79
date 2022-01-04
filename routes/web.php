@@ -24,3 +24,5 @@ $router->get("transaksi", "TransaksiController@index");
 $router->post("transaksi", "TransaksiController@store");
 
 $router->get("cek-poin", "TransaksiController@show_point");
+
+$router->post("cetak-tabungan", "TransaksiController@print_tabungan");

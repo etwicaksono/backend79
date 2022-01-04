@@ -45,3 +45,17 @@ if (!function_exists("in_array_r")) {
         return false;
     }
 }
+
+if (!function_exists("date_parser")) {
+    function date_parser($date)
+    {
+        // mengubah d-m-Y menjadi Y-m-d
+        if ($date != "") {
+            $temp = explode('-', $date);
+            $day = $temp[0];
+            $month = $temp[1];
+            $year = $temp[2];
+            return $year . "-" . $month . "-" . $day;
+        }
+    }
+}

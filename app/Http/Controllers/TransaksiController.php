@@ -118,4 +118,18 @@ class TransaksiController extends Controller
 
         return \response()->json($result, 201);
     }
+
+    public function print_tabungan(Request $request)
+    {
+        $start = date_parser($request->start) . " 00:00:00";
+        $end = date_parser($request->end) . " 23:59:59";
+        $transaction = DB::table("transaksi AS t")
+            ->leftJoin("nasabah AS n", "t.user_id", "=", "n.account_id")
+            ->select("n.account_id", "n.name", "t.transaction_date", "t.description", "t.type", "t.amount")
+            ->where("t.transaction_date", ">=", $start)
+            ->where("t.transaction_date", "<=", $end)
+            ->get();
+
+        return \response()->json($transaction, 201);
+    }
 }
