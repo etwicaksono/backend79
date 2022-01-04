@@ -103,6 +103,19 @@ class TransaksiController extends Controller
             $tr->point = get_point($tr->description, $tr->amount);
         }
 
-        return \response()->json($transaction, 201);
+        $transaction_arr = json_decode($transaction, true);
+        $result = [];
+
+        foreach ($transaction_arr as $tr) {
+            $idx = array_search($tr["account_id"], \array_column($result, "account_id"));
+            if ($idx === false) {
+                $result[] = $tr;
+            } else {
+                $result[$idx]["point"] += $tr["point"];
+            }
+        }
+
+
+        return \response()->json($result, 201);
     }
 }
