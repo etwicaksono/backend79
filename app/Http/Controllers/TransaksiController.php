@@ -94,13 +94,13 @@ class TransaksiController extends Controller
             ->leftJoin("nasabah AS n", "t.user_id", "=", "n.account_id")
             ->select("n.account_id", "n.name", "t.transaction_date", "t.description", "t.type", "t.amount")
             ->where("t.type", "=", "D")
-            ->where("t.description", "=", "Beli Pulsa")
+            ->whereRaw("TRIM(LOWER(t.description)) LIKE?", ["beli pulsa%"])
             ->orWhere("t.type", "=", "D")
-            ->where("t.description", "=", "Bayar Listrik")
+            ->whereRaw("TRIM(LOWER(t.description)) LIKE?", ["bayar listrik%"])
             ->get();
 
         foreach ($transaction as $tr) {
-            $tr->poin = get_point($tr->description, $tr->amount);
+            $tr->point = get_point($tr->description, $tr->amount);
         }
 
         return \response()->json($transaction, 201);
