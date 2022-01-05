@@ -10,7 +10,7 @@ class NasabahController extends Controller
 {
     public function showAllNasabah()
     {
-        return \response()->json(NasabahModel::all());
+        return \response()->json(NasabahModel::orderBy("account_id", "desc")->get());
     }
 
     public function nasabahForSelect2(Request $request)
@@ -36,8 +36,7 @@ class NasabahController extends Controller
     {
         $nasabah = NasabahModel::create($request->all());
         return \response()->json([
-            "recent" => $nasabah,
-            "all" => NasabahModel::all()
+            "status" => "OK"
         ], 201);
     }
 }
