@@ -48,13 +48,14 @@ class TransaksiController extends Controller
     {
         TransaksiModel::create([
             "user_id" => $request->user_id,
-            "transaction_date" => \date("Y-m-d H:i:s"),
+            "transaction_date" => \date_parser($request->transaction_date) . " " . date("H:i:s"),
             "description" => $request->description,
             "type" => $request->type,
             "amount" => $request->amount,
         ]);
         return \response()->json([
-            "status" => "OK"
+            "status" => "OK",
+            "latest_data" => TransaksiModel::orderBy("id", "desc")->first()
         ], 201);
     }
 

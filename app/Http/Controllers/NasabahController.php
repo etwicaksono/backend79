@@ -37,7 +37,8 @@ class NasabahController extends Controller
     {
         NasabahModel::create($request->all());
         return \response()->json([
-            "status" => "OK"
+            "status" => "OK",
+            "latest_data" => NasabahModel::orderBy("account_id", "desc")->first()
         ], 201);
     }
 }
