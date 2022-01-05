@@ -18,9 +18,10 @@ class NasabahController extends Controller
         if ($request->search != "") {
             $nasabah = DB::table('nasabah')
                 ->where("name", "like", "%" . $request->search . "%")
+                ->orderBy("name", "asc")
                 ->get();
         } else {
-            $nasabah = NasabahModel::all()->take(10);
+            $nasabah = NasabahModel::orderBy("name", "asc")->get()->take(10);
         }
 
         $result = [];
@@ -34,7 +35,7 @@ class NasabahController extends Controller
 
     public function insertNasabah(Request $request)
     {
-        $nasabah = NasabahModel::create($request->all());
+        NasabahModel::create($request->all());
         return \response()->json([
             "status" => "OK"
         ], 201);

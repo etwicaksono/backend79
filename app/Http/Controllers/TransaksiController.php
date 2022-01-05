@@ -13,9 +13,19 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return \response()->json(TransaksiModel::all());
+        $transaction = DB::table("transaksi AS t")
+            ->leftJoin("nasabah AS n", "t.user_id", "=", "n.account_id")
+            ->select("n.account_id", "n.name", "t.transaction_date", "t.description", "t.type", "t.amount")
+            ->where("account_id", $request->user)
+            ->get();
+
+        foreach ($transaction as $tr) {
+            $tr->transaction_date = \date("Y-m-d", \strtotime($tr->transaction_date));
+            $tr->amount = \number_format($tr->amount, 0, ",", ".");
+        }
+        return \response()->json($transaction);
     }
 
     /**
@@ -36,10 +46,15 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        $transaksi = TransaksiModel::create($request->all());
+        TransaksiModel::create([
+            "user_id" => $request->user_id,
+            "transaction_date" => \date("Y-m-d H:i:s"),
+            "description" => $request->description,
+            "type" => $request->type,
+            "amount" => $request->amount,
+        ]);
         return \response()->json([
-            "recent" => $transaksi,
-            "all" => TransaksiModel::all()
+            "status" => "OK"
         ], 201);
     }
 
