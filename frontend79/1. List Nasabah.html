@@ -36,6 +36,7 @@
             <tbody>
             </tbody>
         </table>
+        <p class="h1 text-center no-data d-none">No Data Available</p>
     </div>
 
 
@@ -136,6 +137,12 @@
                     },
                     success: function (res) {
                         let result = ""
+
+                        if (res.length == 0) {
+                            $(".no-data").removeClass("d-none")
+                        } else {
+                            $(".no-data").addClass("d-none")
+                        }
 
                         $.each(res, function (key, val) {
                             console.log(val)
