@@ -100,8 +100,8 @@
                 },
                 placeholder: "Pilih User",
                 width: "100%",
-                allowClear: false
-            }).on("select2:select", function (e) {
+                allowClear: true
+            }).on("change", function (e) {
                 updateTable()
             })
 
@@ -131,7 +131,7 @@
                 let start = $("#start-date").val()
                 let end = $("#end-date").val()
 
-                if (user != "" && start != "" && end != "") {
+                if (user != null && start != "" && end != "") {
                     $.ajax({
                         url: baseurl + "cetak-tabungan",
                         data: {
