@@ -13,7 +13,7 @@ class NasabahController extends Controller
     {
         // return \response()->json(NasabahModel::orderBy("account_id", "desc")->get());
         $data = NasabahModel::orderBy("account_id", "desc")->get();
-        \dd($data);
+        // \dd($data);
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function ($row) {
