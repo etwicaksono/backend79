@@ -128,6 +128,7 @@ class TransaksiController extends Controller
             ->select("n.account_id", "n.name", "t.transaction_date", "t.description", "t.type", "t.amount")
             ->where("t.transaction_date", ">=", $start)
             ->where("t.transaction_date", "<=", $end)
+            ->where("account_id", $request->user)
             ->get();
 
         return \response()->json($transaction, 201);

@@ -18,6 +18,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get("nasabah", "NasabahController@showAllNasabah");
+$router->get("select-nasabah", "NasabahController@nasabahForSelect2");
 $router->post("nasabah", "NasabahController@insertNasabah");
 
 $router->get("transaksi", "TransaksiController@index");
