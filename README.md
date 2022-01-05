@@ -3,7 +3,7 @@
 
 ## Cara instalasi dan penggunaan
 
-1. Jalankan xampp dan nyalakan Apache dan MySQL
+1. Jalankan xampp kemudian nyalakan Apache dan MySQL
 2. Buat sebuah database dengan nama "backend79"
 3. Jalankan perintah ini pada terminal `git clone https://github.com/etwicaksono/backend79.git`
 4. Jalankan perintah `composer install`
