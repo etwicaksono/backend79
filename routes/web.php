@@ -17,6 +17,22 @@ $router->get('/', function () {
     return view("list-nasabah");
 });
 
+$router->get('customer', function () {
+    return view("list-nasabah");
+});
+
+$router->get('transaction', function () {
+    return view("list-transaksi");
+});
+
+$router->get('tabungan', function () {
+    return view("report-buku-tabungan");
+});
+
+$router->get('poin', function () {
+    return view("show-point");
+});
+
 $router->get("nasabah", "NasabahController@showAllNasabah");
 $router->get("select-nasabah", "NasabahController@nasabahForSelect2");
 $router->post("nasabah", "NasabahController@insertNasabah");
