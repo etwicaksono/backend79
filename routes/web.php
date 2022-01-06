@@ -17,7 +17,9 @@ $router->get('/', function () {
     return view("list-nasabah");
 });
 
-$router->get('customer', "NasabahController@index");
+$router->get('customer', function () {
+    return view("list-nasabah");
+});
 
 $router->get('transaction', function () {
     return view("list-transaksi");
