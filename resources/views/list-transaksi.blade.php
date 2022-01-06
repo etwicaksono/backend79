@@ -5,16 +5,16 @@
 
 <div class="row mb-3">
     <div class="col-12">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary float-end btn-modal-trigger">
-            Add Transaction
-        </button>
-
-        <div class="form-group float-start">
+        <div class="form-group float-left">
             <label for="account" class="form-label">Account</label>
             <select name="user" id="user" class="form-control">
             </select>
         </div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary float-right btn-modal-trigger">
+            Add Transaction
+        </button>
     </div>
 </div>
 <table id="main-table" class="table table-striped" style="width:100%">
@@ -178,8 +178,8 @@
             },
         },
         placeholder: "Pilih User",
-        width: "100%",
-        allowClear: false
+        allowClear: false,
+        width:"100%"
     }).on("select2:select", function() {
         updateTable()
     })

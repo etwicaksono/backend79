@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class NasabahController extends Controller
 {
+    public function index()
+    {
+        return view("list-nasabah");
+    }
+
     public function showAllNasabah()
     {
         return \response()->json(NasabahModel::orderBy("account_id", "desc")->get());
