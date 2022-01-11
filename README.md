@@ -9,6 +9,3 @@
 4. Jalankan perintah `composer install`
 5. Jalankan perintah `php artisan serve`
 6. Jalankan perintah `php artisan migrate:refresh --seed`
-
-Demo : https://drive.google.com/file/d/1fCxOKPhhYSQqouTpcjj4MPRBi-Ky-12p/view?usp=sharing
-Challenge : https://github.com/etwicaksono/challenge79
