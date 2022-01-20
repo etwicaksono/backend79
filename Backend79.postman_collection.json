@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "b4456eca-fb6f-4f9d-aead-e7fdd04e9439",
+		"name": "Backend79",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Nasabah",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/nasabah",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"nasabah"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Nasabah",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Nana 3",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Blitar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/nasabah",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"nasabah"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaksi",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/transaksi?user=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"transaksi"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Transaksi",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "transaction_date",
+							"value": "17-12-2021",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Beli Kuota",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "D",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "50000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/transaksi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"transaksi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cek poin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/cek-poin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cek-poin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cetak tabungan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "start",
+							"value": "1-1-2022",
+							"type": "default"
+						},
+						{
+							"key": "end",
+							"value": "5-1-2022",
+							"type": "default"
+						},
+						{
+							"key": "user",
+							"value": "5",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/cetak-tabungan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cetak-tabungan"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
